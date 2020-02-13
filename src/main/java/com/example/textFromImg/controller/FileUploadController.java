@@ -41,7 +41,8 @@ public class FileUploadController {
         File convFile = convert(file);
         Tesseract tesseract = new Tesseract();
 //        tesseract.setDatapath("C:\\Dev\\di\\textFromImg\\src\\main\\resources\\tessdata");
-        tesseract.setDatapath(Paths.get(resource.getURI()).toFile().getAbsolutePath());
+        tesseract.setDatapath("./usr/share/tessdata");
+//        tesseract.setDatapath("classpath:/tessdata");
         String text = tesseract.doOCR(convFile);
         redirectAttributes.addFlashAttribute("file", file);
         redirectAttributes.addFlashAttribute("text", text);
