@@ -38,7 +38,6 @@ public class FileUploadController {
 //        byte[] bytes = file.getBytes();
 //        Path path = Paths.get("C:\Dev\\di\\textFromImg\\src\\main\\resources\\" + file.getOriginalFilename());
 //        Files.write(path, bytes);
-
         File convFile = convert(file);
         Tesseract tesseract = new Tesseract();
 //        tesseract.setDatapath("C:\\Dev\\di\\textFromImg\\src\\main\\resources\\tessdata");
@@ -56,7 +55,7 @@ public class FileUploadController {
 
     public static File convert(MultipartFile file) throws IOException {
         File convFile = new File(file.getOriginalFilename());
-        convFile.createNewFile();
+//        convFile.createNewFile();
         FileOutputStream fos = new FileOutputStream(convFile);
         fos.write(file.getBytes());
         fos.close();
